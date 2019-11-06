@@ -1,0 +1,50 @@
+#Redisson配置
+singleServerConfig:
+  address: "redis://127.0.0.1:6379"
+  # 密码
+  password: root
+  # 在Redis节点里显示的客户端名称
+  clientName: null
+  # 选择使用哪个数据库0~15
+  database: 7
+  # 连接空闲超时，单位：毫秒 默认10000
+  idleConnectionTimeout: 10000
+  pingTimeout: 1000
+  # 同任何节点建立连接时的等待超时。时间单位是毫秒 默认10000
+  connectTimeout: 15000
+  # 等待节点回复命令的时间。该时间从命令发送成功时开始计时。默认3000
+  timeout: 3000
+  # 命令失败重试次数
+  retryAttempts: 3
+  # 命令重试发送时间间隔，单位：毫秒
+  retryInterval: 1500
+  # 重新连接时间间隔，单位：毫秒
+  reconnectionTimeout: 3000
+  # 执行失败最大次数
+  failedAttempts: 3
+  # 单个连接最大订阅数量
+  subscriptionsPerConnection: 5
+  # 从节点发布和订阅连接的最小空闲连接数
+  subscriptionConnectionMinimumIdleSize: 1
+  # 从节点发布和订阅连接池大小
+  subscriptionConnectionPoolSize: 50
+  # 最小空闲连接数
+  connectionMinimumIdleSize: 32
+  # 连接池大小
+  connectionPoolSize: 64
+  # DNS监控间隔，单位：毫秒
+  dnsMonitoringInterval: 5000
+  #dnsMonitoring: false
+
+# 线程池数量 默认值: 当前处理核数量 * 2
+threads: 0
+# Netty线程池数量 默认值: 当前处理核数量 * 2
+nettyThreads: 0
+# 编码 默认值: org.redisson.codec.JsonJacksonCodec
+codec: !<org.redisson.codec.JsonJacksonCodec> {}
+# 传输模式
+#  可选参数：
+#  TransportMode.NIO, 默认值
+#  TransportMode.EPOLL - 需要依赖里有netty-transport-native-epoll包（Linux）
+#  TransportMode.KQUEUE - 需要依赖里有 netty-transport-native-kqueue包（macOS）
+transportMode: "NIO"
